@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">App_Dev_Lab5_Homework</string>
+    <string name="count">Count</string>
+    <string name="edit_text_label">This is an edit text</string>
+</resources>
