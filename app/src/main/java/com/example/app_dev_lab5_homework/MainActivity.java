@@ -1,16 +1,16 @@
 package com.example.app_dev_lab5_homework;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
 
+    // defining variables
     private int mCount = 0;
     private TextView mShowCount;
     private EditText textEdit;
@@ -18,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
     public static String savedStateValue;
     public static String getCount;
 
+    /**
+     * OnCreate method is called when the activity starts.
+     *
+     * @param savedInstanceState is used to save the most recently supplied data to the app.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         mShowCount = (TextView) findViewById(R.id.count_view);
         textEdit = (EditText) findViewById(R.id.edit_text);
 
+         /*
+        Check if savedInstanceState is not null. Then, set the textEdit to the
+        editText_text text and mShowCount to count_text
+         */
         if (savedInstanceState != null) {
             textEdit.setText(savedInstanceState.getString("editText_text"));
             mShowCount.setText(savedInstanceState.getString("count_text"));
@@ -33,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * A method to increment counter on button press.
+     *
+     * @param view
+     */
     public void countUp(View view) {
         mCount++;
         if (mShowCount != null) {
@@ -77,7 +91,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d(LOG_TAG, "onDestroy");
     }
 
-    // check to see if header is visible then put that state in bundle
+    /**
+     * Saved instance method saves the current data when the app is recreated.
+     * Getting the data textedit and showcount. Put those strings into the outstate.
+     *
+     * @param outState keyvaluepairs from the app's current state.
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
